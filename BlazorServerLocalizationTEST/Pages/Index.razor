@@ -1,0 +1,21 @@
+﻿@page "/"
+@using BlazorServerLocalizationTEST.Services
+@using Microsoft.Extensions.Localization
+@using BlazorServerLocalizationTEST.Resources
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject IStringLocalizer<Index> localizer
+@inject GenericService ourService
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject NavigationManager NavManager
+
+
+<h1 style="text-align:center">@localizer["Title"]</h1>
+
+<h2 style="text-align:center">@localizer["Welcome"]</h2>
+
+<h3 style="text-align:center">@localizer["Blazor Conf 2022"]</h3>
+
+<div class="col-md-12 conf-alert">@Text</div>
+
+<img src="@localizer["logo"]" />
+

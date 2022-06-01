@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Localization
+@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@using BlazorServerLocalizationTEST.Services
+@using Microsoft.Extensions.Localization
+@using Index = BlazorServerLocalizationTEST.Pages.Index
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject GenericService ourService
+@inject IStringLocalizer<Index> localizer
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <div @onclick="() => OnSelected(English)">En - </div>
+        <div @onclick="() => OnSelected(Italian)">It - </div>
+        <div @onclick="() => OnSelected(Ukranian)">Uk</div>
+    </div>
+    <CascadingValue Value="@text">
+    <div class="content px-4">
+        @Body
+    </div>
+    </CascadingValue>
+</div>
